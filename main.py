@@ -27,7 +27,25 @@
 #========
 # Define required functions.
 #========
+def start():
+    
+    robot_ctrl.set_mode(rm_define.robot_mode_free)
 
+    gimbal_ctrl.set-rotate_speed(60)
+
+    chassis_ctrl.set_rotate_speed(30)
+
+    chassis_ctrl.set_trans_speed(0.5)
+
+    chassis_ctrl.move_with_distance(0,0.3)
+
+    chassis_ctrl.rotate_with_degree(rm_define.clockwise, 180)
+
+    gimbal_ctrl.recenter()
+
+    gimbal_ctrl.yaw_ctrl(250)
+
+    gimbal_ctrl.pitch_ctrl(15)
 
 #========
 # Gather user inputs.
