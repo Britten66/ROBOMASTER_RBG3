@@ -5,18 +5,16 @@
 #==============================
 # Author(s): Robot Group 3 
 #==============================
-#Desc: This is a program that allows the connected robot ( JOHNNY - 5 )
-# JOHNNY-5 will perform dynamic movments throughout an obsticle course while being run via an IDE using Python.
-# Version control using Git.
-# The program will provide function to the robot and the output will be a dynamic rnage of movements
-# that allows the robot to complete a predetermed course as per requirments.
+#Desc: This Program Controls J-O-H-N-N-Y -5- as it performs dynamic 
+#changes throughout a predetermined obstacle course.
+#This program will run using pyhton in an IDE with version control using git.
 
 
 
 #========
 # Define required libraries.
 #========
-
+import time
 
 
 #========
@@ -25,23 +23,24 @@
 
 
 #========
-# Define required functions.
+# Define Mode
 #========
 def start():
     # This must be the first line of any module that you write. It allows the chassis and the gimbal to move independently.
     robot_ctrl.set_mode(rm_define.robot_mode_free)
 
+
+#========
+# Set Speeds: 
+#========
     # Set Rotate Speed: This sets the rotation speed of the gimbal.
-    gimbal_ctrl.set-rotate_speed(60)
+    gimbal_ctrl.set_rotate_speed(60)
 
     # This next line sets the rotation speed for the bot itself rotating around using it's wheels.
     chassis_ctrl.set_rotate_speed(30)
 
     # set_trans_speed sets the movement speed of the robot in meters per second.
     chassis_ctrl.set_trans_speed(0.5)
-
-    # move_with_distance takes in two parameters, the first is an angle (0 meaning move straight ahead forward), and the second is a distance in meters (in this case, move 0.3 meters forward – the max distance is 5 meters - if you need to move more than 5 meters you need to set up two – or more – commands.)
-    chassis_ctrl.move_with_distance(0,0.3)
 
     # Rotate with degree takes in a direction of rotation, and a number of degrees for the bot to rotate.
     chassis_ctrl.rotate_with_degree(rm_define.clockwise, 180)
@@ -56,18 +55,41 @@ def start():
     gimbal_ctrl.pitch_ctrl(15)
 
 #========
-# Gather user inputs.
+# Begin Here
+#========
+
+    # move_with_distance takes in two parameters, the first is an angle (0 meaning move straight ahead forward), and the second is a distance in meters
+    # 
+    # 
+    #  (in this case, move 0.3 meters forward – the max distance is 5 meters - if you need to move more than 5 meters you need to set up two – or more – commands.)
+
+
+    print("Johnny-5.0 is Moving To First Position.") # Would Be neat to put moving dots here . . . 
+    chassis_ctrl.move_with_distance(0,0.3)
+    time.sleep(1)
+
+    print("Energy Support System Active, Navigation Systems are Syned.")
+    print("Starting in:")
+
+    for i in range(3,0,-1):
+     print(i)
+    time.sleep(1)
+    print("Moving To First Target Area...")
+    # This will move the robot 90 degrees in the right -- > direction also 0.81 meters
+    chassis_ctr.move_with_distance(90,0.81)
+
+    print("Area 1 is Clear.") # Message will disply when area is completed. 
+
+
+
+#========
+# 
 #========
 
 
-#========
-# Main program starts here.
-#========
-
-
 
 #========
-# Perform required calculations.
+# Phase 1: Approach - 16 forward 
 #========
     
 
