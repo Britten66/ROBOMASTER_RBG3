@@ -26,7 +26,8 @@ import time
 # Define Mode
 #========
 
-def start():   
+def start():
+    # Start setting for robot.
     robot_ctrl.set_mode(rm_define.robot_mode_free)
 
     gimbal_ctrl.set_rotate_speed(60)
@@ -35,13 +36,7 @@ def start():
     
     chassis_ctrl.set_trans_speed(0.5)
     
-    #chassis_ctrl.rotate_with_degree(rm_define.clockwise, 180)
-    
     gimbal_ctrl.recenter()
-    
-   # gimbal_ctrl.yaw_ctrl(250)
-    
-   # gimbal_ctrl.pitch_ctrl(15)
     
     print("Johnny-5.0 is Moving To First Position.")
     
@@ -53,10 +48,7 @@ def start():
     
     print("Engery Support System Actice, Navigation Systems are Syned.")
     
-   # for i in range(1,0,-1):
-     #   print(i)
-       # time.sleep(1)
-    
+def ZigZag():
     # Start of track.
     chassis_ctrl.move_with_distance(-90,0.85) # First turn to the left 90 degrees, go 31 inches.
     time.sleep(1)
