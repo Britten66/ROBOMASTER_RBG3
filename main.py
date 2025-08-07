@@ -25,87 +25,70 @@ import time
 #========
 # Define Mode
 #========
-def start():
-    # This must be the first line of any module that you write. It allows the chassis and the gimbal to move independently.
+
+def start():   
     robot_ctrl.set_mode(rm_define.robot_mode_free)
 
-
-#========
-# Set Speeds: 
-#========
-    # Set Rotate Speed: This sets the rotation speed of the gimbal.
     gimbal_ctrl.set_rotate_speed(60)
-
-    # This next line sets the rotation speed for the bot itself rotating around using it's wheels.
+    
     chassis_ctrl.set_rotate_speed(30)
-
-    # set_trans_speed sets the movement speed of the robot in meters per second.
+    
     chassis_ctrl.set_trans_speed(0.5)
-
-    # Rotate with degree takes in a direction of rotation, and a number of degrees for the bot to rotate.
-    chassis_ctrl.rotate_with_degree(rm_define.clockwise, 180)
-
-    # Recenter always rotates the gimbal back to its starting position of staring directly forward in front of it (yaw-wise), with a level pitch. Basically, it reset to 0, 0.
+    
+    #chassis_ctrl.rotate_with_degree(rm_define.clockwise, 180)
+    
     gimbal_ctrl.recenter()
-
-    # Yaw_ctrl rotates the gimbal by the number of degrees you pass into the function.
-    gimbal_ctrl.yaw_ctrl(250)
-
-    # Likewise, pitch_ctrl rotates the gimbal up and down by the number of degrees specified, in this case 15.
-    gimbal_ctrl.pitch_ctrl(15)
-
-#========
-# Begin Here
-#========
-
-    # move_with_distance takes in two parameters, the first is an angle (0 meaning move straight ahead forward), and the second is a distance in meters
-    # 
-    # 
-    #  (in this case, move 0.3 meters forward – the max distance is 5 meters - if you need to move more than 5 meters you need to set up two – or more – commands.)
-
-
-    print("Johnny-5.0 is Moving To First Position.") # Would Be neat to put moving dots here . . . 
-    chassis_ctrl.move_with_distance(0,0.3)
+    
+   # gimbal_ctrl.yaw_ctrl(250)
+    
+   # gimbal_ctrl.pitch_ctrl(15)
+    
+    print("Johnny-5.0 is Moving To First Position.")
+    
+    chassis_ctrl.move_with_distance(0,5)
     time.sleep(1)
-
-    print("Energy Support System Active, Navigation Systems are Syned.")
-    print("Starting in:")
-
-    for i in range(3,0,-1):
-     print(i)
+    chassis_ctrl.move_with_distance(0,0.85)
+    
+    time.sleep(5)
+    
+    print("Engery Support System Actice, Navigation Systems are Syned.")
+    
+   # for i in range(1,0,-1):
+     #   print(i)
+       # time.sleep(1)
+    
+    # Start of track.
+    chassis_ctrl.move_with_distance(-90,0.85) # First turn to the left 90 degrees, go 31 inches.
     time.sleep(1)
-    print("Moving To First Target Area...")
-    # This will move the robot 90 degrees in the right -- > direction also 0.81 meters
-    chassis_ctr.move_with_distance(90,0.81)
-
-    print("Area 1 is Clear.") # Message will disply when area is completed. 
-
-
-
-#========
-# 
-#========
-
-
-
-#========
-# Phase 1: Approach - 16 forward 
-#========
+    
+    chassis_ctrl.move_with_distance(0,0.4) # Second move go forward 14 inches.
+    time.sleep(1)
+    
+    chassis_ctrl.move_with_distance(90,1.75) # Third move go right 64 1/2 inches.
+    time.sleep(1)
+    
+    chassis_ctrl.move_with_distance(0,0.48) # Forth move, go forward 16 1/2 inches.
+    time.sleep(1)
+    
+    chassis_ctrl.move_with_distance(-90,0.6) # Fifth move, go left 90 degrees, 20 1/4 inches.
+    time.sleep(4)
+    
+    chassis_ctrl.move_with_distance(-47,1.7) # Sixth move, go left 45 degrees, 58 1/2 inches.
+    time.sleep(4)
+    
+    chassis_ctrl.move_with_distance(0, 0.3) # Seventh move, go streight, 20 inches.
+    time.sleep(4)
+    
+    chassis_ctrl.move_with_distance(90, 0.9) # Eighth move, turn right 90 degrees, 33 inches.
+    time.sleep(4)
+    
+    chassis_ctrl.move_with_distance(0, 0.35) # Nineth move, go forward 15 inches.
+    time.sleep(4)
+    
     
 
-#========
-# Display results
-#========
-
-    
-#========
- # Write the values to a data file for storage.
-#========
 
 
-#========
-# Any housekeeping duties at the end of the program.
-#========
 
    
 
