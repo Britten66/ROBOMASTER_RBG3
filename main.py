@@ -10,7 +10,6 @@
 #This program will run using pyhton in an IDE with version control using git.
 
 
-
 #========
 # Define required libraries.
 #========
@@ -45,9 +44,9 @@ def start():
     chassis_ctrl.move_with_distance(0,0.85)
     
     time.sleep(5)
-    
+
     print("Engery Support System Actice, Navigation Systems are Syned.")
-    
+
 def ZigZag():
     # Start of track.
     chassis_ctrl.move_with_distance(-90,0.85) # First turn to the left 90 degrees, go 31 inches.
@@ -68,7 +67,7 @@ def ZigZag():
     chassis_ctrl.move_with_distance(-47,1.7) # Sixth move, go left 45 degrees, 58 1/2 inches.
     time.sleep(4)
     
-    chassis_ctrl.move_with_distance(0, 0.3) # Seventh move, go streight, 20 inches.
+    chassis_ctrl.move_with_distance(0, 0.3) # Seventh move, go straight, 20 inches.
     time.sleep(4)
     
     chassis_ctrl.move_with_distance(90, 0.9) # Eighth move, turn right 90 degrees, 33 inches.
@@ -76,11 +75,3 @@ def ZigZag():
     
     chassis_ctrl.move_with_distance(0, 0.35) # Nineth move, go forward 15 inches.
     time.sleep(4)
-    
-    
-
-
-
-
-   
-
